@@ -15,39 +15,6 @@ A React Native food delivery app built with Expo, featuring authentication, cart
 * Orders badge on the tab bar for active order count
 * Deep linking to restaurant detail via `foodapp://restaurant/<restaurantName>`
 
-## Navigation Structure
-
-The app uses nested React Navigation navigators for a seamless flow.
-
-```mermaid
-graph TD
-    App(App) --> AuthContext{Auth State?}
-    
-    %% Unauthenticated Flow
-    AuthContext -- Logged Out --> AuthStack(Auth Stack)
-    AuthStack --> Onboarding(Onboarding Screen)
-    AuthStack --> Login(Login Screen)
-    
-    %% Authenticated Flow
-    AuthContext -- Logged In --> RootDrawer(Root Drawer Navigator)
-    
-    %% Drawer Contents
-    RootDrawer --> MainTabs(Main Tabs Navigator)
-    RootDrawer --> Settings(Settings Screen)
-    RootDrawer --> Help(Help Screen)
-    
-    %% Main Tabs Contents
-    MainTabs --> HomeTab(Home Stack)
-    MainTabs --> SearchTab(Search Screen)
-    MainTabs --> OrdersTab(Orders Screen)
-    MainTabs --> ProfileTab(Profile Screen)
-    
-    %% Home Stack Contents
-    HomeTab --> Home(Home Screen)
-    HomeTab --> RestaurantDetail(Restaurant Detail Screen)
-    HomeTab --> Cart(Cart Screen)
-```
-
 ## Key Features
 
 * **Protected Routing:** Authentication state is stored in `AuthContext` and persisted with AsyncStorage.
