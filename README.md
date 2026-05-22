@@ -102,14 +102,36 @@ adb shell am start -a android.intent.action.VIEW -d "foodapp://restaurant/Bella-
 ```
 
 ## Screenshots
+Below are the key screens included in this repo. Copy the attached image files into `assets/screenshots/` using the filenames below so they render in this README.
 
-Add screenshots to `assets/screenshots/` and reference them in this README. Example markdown to include a screenshot:
+- `assets/screenshots/home.png` — Home feed (featured restaurants, categories)
+- `assets/screenshots/restaurant.png` — Restaurant detail with menu
+- `assets/screenshots/cart.png` — Cart and checkout footer
+- `assets/screenshots/orders.png` — Orders screen (active + past orders)
+- `assets/screenshots/profile.png` — Profile screen with avatar and settings
+- `assets/screenshots/login.png` — Login screen (demo credentials)
+- `assets/screenshots/onboarding.png` — Onboarding / Get Started
+- `assets/screenshots/drawer.png` — Drawer with avatar and navigation
 
-```md
+Embedded images (once files are added):
+
+![Home screen](assets/screenshots/home.png)
+
+![Restaurant detail](assets/screenshots/restaurant.png)
+
+![Cart screen](assets/screenshots/cart.png)
+
 ![Orders screen](assets/screenshots/orders.png)
-```
 
-If you want, I can capture and add placeholder screenshots into `assets/screenshots/` for the major flows (Home, Restaurant detail, Cart, Orders, Profile).
+![Profile screen](assets/screenshots/profile.png)
+
+![Login screen](assets/screenshots/login.png)
+
+![Onboarding screen](assets/screenshots/onboarding.png)
+
+![Drawer screenshot](assets/screenshots/drawer.png)
+
+If you prefer, I can add the actual image files into `assets/screenshots/` now using the screenshots you uploaded. Tell me to proceed and I'll save them with the filenames above.
 
 ## Assumptions made
 
@@ -118,12 +140,5 @@ If you want, I can capture and add placeholder screenshots into `assets/screensh
 - Orders placed from the Cart are created locally in app state; no server persistence is implemented.
 - Images are referenced from external URLs in the code. For production you may want to host or bundle them.
 
----
 
-If you'd like I can:
 
-- Add actual screenshots into `assets/screenshots/` now.
-- Add a small troubleshooting section for common Expo issues.
-- Generate a CONTRIBUTING section or run scripts for CI.
-
-Want me to add screenshots automatically? Reply which screens you want captured.
