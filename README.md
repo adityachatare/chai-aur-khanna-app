@@ -1,51 +1,129 @@
 # Chai Aur Khaana
 
-A React Native food delivery app built with Expo, featuring authentication, cart/orders management, and rich navigation.
+Chai Aur Khaana is a React Native food delivery app UI built with Expo. It demonstrates a full mobile navigation structure (Drawer → Tabs → Stack), protected routes, cart & orders flow, and deep linking into restaurant detail screens.
 
-## App Overview
+---
 
-`Chai Aur Khaana` is a customer-facing food ordering UI with:
+## Project overview
 
-* Onboarding flow and login screen
-* Protected authenticated routes using `AuthContext`
-* Nested drawer, bottom tabs, and stack navigation
-* Restaurant detail screens with menu browsing and add-to-cart support
-* Cart checkout that creates active orders
-* Orders page with active and past order sections
-* Orders badge on the tab bar for active order count
-* Deep linking to restaurant detail via `foodapp://restaurant/<restaurantName>`
+- Mobile UI for discovering restaurants, viewing menus, adding items to cart, and placing orders.
+- Simple onboarding and credential-based login (demo credentials: `adityachatare` / `123`).
+- Placing an order moves it to the Active Orders list and updates the Orders tab badge.
 
-## Key Features
+## Tech stack
 
-* **Protected Routing:** Authentication state is stored in `AuthContext` and persisted with AsyncStorage.
-* **Flexible Navigation:** Drawer > Tabs > Stack nesting supports both app-wide routing and deep flows.
-* **Hidden Tab Bar:** The bottom tabs are hidden automatically on `RestaurantDetail` and `Cart` screens.
-* **Cart & Orders:** Users can add items to cart, place orders, and see active/past orders.
-* **Orders Badge:** The `Orders` tab shows active order count in a badge.
-* **Deep Linking:** Supports `foodapp://restaurant/<restaurantName>` to open a restaurant directly.
+- React Native (managed Expo project)
+- react-navigation (Drawer, Bottom Tabs, Native Stack)
+- TypeScript (project uses .tsx files)
+- AsyncStorage for persisting auth state
+- lucide-react-native for icons
 
-## Screens
+## How to run locally
 
-* `OnboardingScreen` - introductory experience before login
-* `LoginScreen` - credential-based login flow
-* `HomeScreen` - restaurant discovery and navigation
-* `RestaurantDetailScreen` - menu and cart entry for a restaurant
-* `CartScreen` - checkout and place order
-* `OrdersScreen` - active and past order management
-* `ProfileScreen` - user profile and quick links
-* `SettingsScreen` - app settings
-* `HelpScreen` - support and help information
+Prerequisites:
 
-## Development
+- Node.js (LTS)
+- Yarn or npm
+- Expo CLI (optional: `npm install -g expo-cli`)
+
+Install dependencies and start the dev server:
 
 ```bash
+npm install
+# or: yarn
+
 npx expo start
 ```
 
-Open the project in Expo Go or a simulator after starting the packager.
+Open in Expo Go (mobile) or press `i` / `a` in the Expo CLI to open on an iOS simulator / Android emulator.
 
-## Notes
+Notes for development:
+- The app exposes a demo login that accepts username `adityachatare` and password `123`.
+- Authentication state is persisted in AsyncStorage under the `isAuthenticated` key.
 
-* The app currently uses a fixed credential login check for `adityachatare` / `123`.
-* The restaurant deep link path uses the restaurant name slug.
-* The bottom tabs and drawer are only available after successful login.
+## Navigation structure
+
+The app uses nested navigators: a `RootDrawer` with the main tabs and additional screens; `MainTabs` contains a `HomeStack` for onboarding, restaurant flows, and cart.
+
+```mermaid
+graph TD
+    App(App) --> AuthContext{Auth State?}
+    
+    %% Unauthenticated Flow
+    AuthContext -- Logged Out --> AuthStack(Auth Stack)
+    AuthStack --> Onboarding(Onboarding Screen)
+    AuthStack --> Login(Login Screen)
+    
+    %% Authenticated Flow
+    AuthContext -- Logged In --> RootDrawer(Root Drawer Navigator)
+    
+    %% Drawer Contents
+    RootDrawer --> MainTabs(Main Tabs Navigator)
+    RootDrawer --> Settings(Settings Screen)
+    RootDrawer --> Help(Help Screen)
+    
+    %% Main Tabs Contents
+    MainTabs --> HomeTab(Home Stack)
+    MainTabs --> SearchTab(Search Screen)
+    MainTabs --> OrdersTab(Orders Screen)
+    MainTabs --> ProfileTab(Profile Screen)
+    
+    %% Home Stack Contents
+    HomeTab --> Home(Home Screen)
+    HomeTab --> RestaurantDetail(Restaurant Detail Screen)
+    HomeTab --> Cart(Cart Screen)
+```
+
+## Deep linking setup
+
+Deep linking is configured in `src/navigation/index.tsx` using Expo Linking. The app supports links that open a restaurant detail directly using the restaurant name slug.
+
+- Prefixes configured: the app uses the generated Expo URL prefix and the custom scheme `foodapp://`.
+- Path used for restaurant detail: `restaurant/:restaurantName` (slugified name)
+
+Examples:
+
+- Open restaurant by name (space or special chars are slugified):
+  - `foodapp://restaurant/Bella-Italia-Grill`
+  - `foodapp://restaurant/Bella%20Italia%20Grill`
+
+Testing deep links locally (Expo):
+
+```bash
+# From a machine with expo CLI running:
+npx uri-scheme open "foodapp://restaurant/Bella-Italia-Grill" --android
+npx uri-scheme open "foodapp://restaurant/Bella-Italia-Grill" --ios
+```
+
+Or trigger from adb (Android):
+
+```bash
+adb shell am start -a android.intent.action.VIEW -d "foodapp://restaurant/Bella-Italia-Grill"
+```
+
+## Screenshots
+
+Add screenshots to `assets/screenshots/` and reference them in this README. Example markdown to include a screenshot:
+
+```md
+![Orders screen](assets/screenshots/orders.png)
+```
+
+If you want, I can capture and add placeholder screenshots into `assets/screenshots/` for the major flows (Home, Restaurant detail, Cart, Orders, Profile).
+
+## Assumptions made
+
+- Login is demo-only (no backend). Credentials are checked client-side for `adityachatare` / `123`.
+- Restaurant routing uses slugified names rather than numeric IDs for deep linking.
+- Orders placed from the Cart are created locally in app state; no server persistence is implemented.
+- Images are referenced from external URLs in the code. For production you may want to host or bundle them.
+
+---
+
+If you'd like I can:
+
+- Add actual screenshots into `assets/screenshots/` now.
+- Add a small troubleshooting section for common Expo issues.
+- Generate a CONTRIBUTING section or run scripts for CI.
+
+Want me to add screenshots automatically? Reply which screens you want captured.

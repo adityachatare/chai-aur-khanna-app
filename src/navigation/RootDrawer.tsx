@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import MainTabs from './MainTabs';
 import SettingsScreen from '../screens/SettingsScreen';
 import HelpScreen from '../screens/HelpScreen';
@@ -14,7 +14,10 @@ function CustomDrawerContent(props: any) {
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.drawerHeader}>
-        <View style={styles.avatarPlaceholder} />
+        <Image
+          source={{ uri: 'https://media.licdn.com/dms/image/v2/D4D03AQGUQ53fNOtreQ/profile-displayphoto-scale_400_400/B4DZlSTP8PIgAg-/0/1758022406207?e=1781136000&v=beta&t=j-H27935wE35GpiXjNOsQdpx4V8SidJyKIGFFuht-2w' }}
+          style={styles.avatar}
+        />
         <Text style={styles.drawerName}>Aditya Chatare</Text>
         <Text style={styles.drawerEmail}>adityachatare1@gmail.com</Text>
       </View>
@@ -48,11 +51,11 @@ const styles = StyleSheet.create({
     borderBottomColor: '#F0F0F0',
     marginBottom: 10,
   },
-  avatarPlaceholder: {
+  avatar: {
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#E0E0E0',
+    overflow: 'hidden',
     marginBottom: 10,
   },
   drawerName: {
