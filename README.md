@@ -39,8 +39,7 @@ A React Native food delivery app built with Expo, featuring authentication, cart
 ## Development
 
 ```bash
-npm install
-npm start
+npx expo start
 ```
 
 Open the project in Expo Go or a simulator after starting the packager.
