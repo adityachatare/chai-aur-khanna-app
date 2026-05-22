@@ -84,54 +84,64 @@ Deep linking is configured in `src/navigation/index.tsx` using Expo Linking. The
 Examples:
 
 - Open restaurant by name (space or special chars are slugified):
-  - `foodapp://restaurant/Bella-Italia-Grill`
-  - `foodapp://restaurant/Bella%20Italia%20Grill`
+  - `foodapp://restaurant/Spice-Villa`
+  - `foodapp://restaurant/Spice-Villa`
 
 Testing deep links locally (Expo):
 
 ```bash
 # From a machine with expo CLI running:
-npx uri-scheme open "foodapp://restaurant/Bella-Italia-Grill" --android
-npx uri-scheme open "foodapp://restaurant/Bella-Italia-Grill" --ios
+npx uri-scheme open "foodapp://restaurant/Spice-Villa" --android
+npx uri-scheme open "foodapp://restaurant/Spice-Villa" --ios
 ```
 
 Or trigger from adb (Android):
 
 ```bash
-adb shell am start -a android.intent.action.VIEW -d "foodapp://restaurant/Bella-Italia-Grill"
+adb shell am start -a android.intent.action.VIEW -d "foodapp://restaurant/Spice-Villa"
 ```
 
 ## Screenshots
 Below are the key screens included in this repo. Copy the attached image files into `assets/screenshots/` using the filenames below so they render in this README.
 
-- `assets/screenshots/home.png` — Home feed (featured restaurants, categories)
+<!-- - `assets/screenshots/home.png` — Home feed (featured restaurants, categories)
 - `assets/screenshots/restaurant.png` — Restaurant detail with menu
 - `assets/screenshots/cart.png` — Cart and checkout footer
 - `assets/screenshots/orders.png` — Orders screen (active + past orders)
 - `assets/screenshots/profile.png` — Profile screen with avatar and settings
 - `assets/screenshots/login.png` — Login screen (demo credentials)
 - `assets/screenshots/onboarding.png` — Onboarding / Get Started
-- `assets/screenshots/drawer.png` — Drawer with avatar and navigation
+- `assets/screenshots/drawer.png` — Drawer with avatar and navigation -->
 
-Embedded images (once files are added):
+Preview (compact thumbnails):
 
-![Home screen](assets/screenshots/home.png)
+<p>
+  <img src="assets/screenshots/home.png" alt="Home" width="120" style="margin-right:8px;" />
+  <img src="assets/screenshots/restaurant.png" alt="Restaurant" width="120" style="margin-right:8px;" />
+  <!-- <img src="assets/screenshots/cart.png" alt="Cart" width="120" style="margin-right:8px;" /> -->
+  <img src="assets/screenshots/orders.png" alt="Orders" width="120" style="margin-right:8px;" />
+</p>
+<p>
+  <img src="assets/screenshots/profile.png" alt="Profile" width="120" style="margin-right:8px;" />
+  <img src="assets/screenshots/login.png" alt="Login" width="120" style="margin-right:8px;" />
+  <img src="assets/screenshots/onboarding.png" alt="Onboarding" width="120" style="margin-right:8px;" />
+  <img src="assets/screenshots/drawer.png" alt="Drawer" width="120" style="margin-right:8px;" />
+</p>
 
-![Restaurant detail](assets/screenshots/restaurant.png)
+Click any thumbnail to open the full-size image (rendering depends on the Markdown viewer).
 
-![Cart screen](assets/screenshots/cart.png)
+## App video
 
-![Orders screen](assets/screenshots/orders.png)
+A short demo video of the app can be embedded here. Copy your video file to `assets/videos/app.mp4` and the README will render a compact player similar to the screenshot thumbnails below.
 
-![Profile screen](assets/screenshots/profile.png)
+<p>
+  <video src="assets/videos/app.mp4" width="240" controls poster="assets/screenshots/home.png" style="margin-right:8px;">
+    Your browser does not support the video tag. You can open the video directly: <a href="assets/videos/app.mp4">Download app video</a>
+  </video>
+  <a href="assets/videos/app.mp4" style="vertical-align:middle; margin-left:8px;">Open full video</a>
+</p>
 
-![Login screen](assets/screenshots/login.png)
 
-![Onboarding screen](assets/screenshots/onboarding.png)
-
-![Drawer screenshot](assets/screenshots/drawer.png)
-
-If you prefer, I can add the actual image files into `assets/screenshots/` now using the screenshots you uploaded. Tell me to proceed and I'll save them with the filenames above.
 
 ## Assumptions made
 
