@@ -56,7 +56,7 @@ export default function CartScreen({ navigation }: any) {
           <Pressable
             style={styles.checkoutButton}
             onPress={() => {
-              placeOrder('Chai Aur Khanna', items, orderTotal);
+              placeOrder('Chai Aur Khaana', items, orderTotal);
               navigation.navigate('Orders');
             }}
           >

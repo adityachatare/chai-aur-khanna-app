@@ -22,7 +22,7 @@ export default function LoginScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.logoText}>Chai Aur Khanna</Text>
+        <Text style={styles.logoText}>Chai Aur Khaana</Text>
         <Text style={styles.subtitle}>Welcome back! Please login to your account.</Text>
       </View>
 

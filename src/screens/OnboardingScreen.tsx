@@ -8,7 +8,7 @@ export default function OnboardingScreen({ navigation }: any) {
       <View style={styles.imageContainer}>
         {/* Placeholder for pizza image */}
         <View style={styles.placeholderImage}>
-          <Text style={styles.logo}>Chai Aur Khanna</Text>
+          <Text style={styles.logo}>Chai Aur Khaana</Text>
         </View>
       </View>
       

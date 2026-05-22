@@ -306,7 +306,7 @@ export default function RestaurantDetailScreen({ route, navigation }: any) {
           >
             <ArrowLeft color="#FFFFFF" size={22} />
           </Pressable>
-          <Text style={styles.headerBrand}>Chai Aur Khanna</Text>
+          <Text style={styles.headerBrand}>Chai Aur Khaana</Text>
           <Pressable style={styles.headerBtn}>
             <Bookmark color="#FFFFFF" size={22} />
           </Pressable>

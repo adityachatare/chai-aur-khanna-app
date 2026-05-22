@@ -110,7 +110,7 @@ export default function HomeScreen({ navigation }: any) {
             <Text style={styles.locationText}>Baner, Pune</Text>
           </View>
           <View style={styles.headerRight}>
-            <Text style={styles.brandName}>Chai Aur Khanna</Text>
+            <Text style={styles.brandName}>Chai Aur Khaana</Text>
             <Pressable
               style={styles.cartIconWrap}
               onPress={() => navigation.navigate('Cart')}
@@ -266,7 +266,7 @@ export default function HomeScreen({ navigation }: any) {
             <View style={styles.offerContent}>
               <Text style={styles.offerHeadline}>Get 50% Off</Text>
               <Text style={styles.offerSubtext}>
-                On your first order with Chai Aur Khanna. Limited time only!
+                On your first order with Chai Aur Khaana. Limited time only!
               </Text>
               <Pressable style={styles.claimButton}>
                 <Text style={styles.claimButtonText}>Claim Now</Text>

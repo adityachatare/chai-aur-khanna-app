@@ -25,7 +25,7 @@ export default function ProfileScreen({ navigation }: any) {
           <Menu color="#1A1A1A" size={24} />
         </Pressable>
 
-        <Text style={styles.brandName}>Chai Aur Khanna</Text>
+        <Text style={styles.brandName}>Chai Aur Khaana</Text>
 
         <Pressable style={styles.iconButton} onPress={() => navigation.navigate('Cart')}>
           <ShoppingCart color="#1A1A1A" size={24} />
