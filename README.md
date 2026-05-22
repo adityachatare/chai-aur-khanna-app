@@ -132,10 +132,9 @@ Click any thumbnail to open the full-size image (rendering depends on the Markdo
 
 ## App video
 
-A short demo video of the app can be embedded here. Copy your video file to `assets/videos/app.mp4` and the README will render a compact player similar to the screenshot thumbnails below.
 
 <p>
-  <video src="assets/videos/app.mp4" width="240" controls poster="assets/screenshots/home.png" style="margin-right:8px;">
+  <video src="assets/video/app.mp4" width="240" controls poster="assets/screenshots/home.png" style="margin-right:8px;">
     Your browser does not support the video tag. You can open the video directly: <a href="assets/videos/app.mp4">Download app video</a>
   </video>
   <a href="assets/videos/app.mp4" style="vertical-align:middle; margin-left:8px;">Open full video</a>
